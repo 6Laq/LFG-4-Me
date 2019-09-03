@@ -2,7 +2,7 @@
   <section class="section">
     <Nav />
     <div class="container">
-      <div class="side-menu">menu</div>
+      <SideMenu class="side-menu" />
       <div class="main-area">posts</div>
       <div class="side-area">related pots</div>
     </div>
@@ -11,11 +11,13 @@
 
 <script>
 import Nav from '../components/Nav'
+import SideMenu from '../components/SideMenu'
 
 export default {
   name: 'Index',
   components: {
-    Nav
+    Nav,
+    SideMenu
   }
 }
 </script>
@@ -35,7 +37,7 @@ export default {
   overflow: hidden;
   height: 100%;
   width: 1500px;
-  min-width: 1250px;
+  min-width: 1232px;
 }
 .side-menu {
   background-color: thistle;
