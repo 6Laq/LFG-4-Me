@@ -8,7 +8,6 @@
 import Index from './pages/Index'
 
 export default {
-  name: 'app',
   components: {
     Index
   }
@@ -16,5 +15,12 @@ export default {
 </script>
 
 <style>
-
+  #app {
+    display: flex;
+    background-color: lightgrey;
+    max-width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Lato', sans-serif;
+  }
 </style>
