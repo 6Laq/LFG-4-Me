@@ -1,16 +1,16 @@
 <template>
-  <div class="side-menu-box column">
+  <div class="side-menu-box">
     <div class="side-search">
-      <a class="">Hello</a>
+      <a class="">Search</a>
     </div>
     <div class="side-profile">
-      <a class="">Hello</a>
+      <a class="">Profile</a>
     </div>
     <div class="side-friends">
-      <a class="">Hello</a>
+      <a class="">Friends</a>
     </div>
     <div class="side-recent">
-      <a class="">Hello</a>
+      <a class="">Recent</a>
     </div>
   </div>
 </template>
@@ -26,22 +26,28 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  align-content: center;
 }
 .side-search {
   background-color: aliceblue;
-  width: 50px;
+  width: 100px;
+  height: 50px;
 }
 .side-profile {
   background-color: aliceblue;
-  width: 50px;
+  width: 100px;
+  height: 50px;
+
 }
 .side-friends {
   background-color: aliceblue;
-  width: 50px;
+  width: 100px;
+  height: 50px;
+
 }
 .side-recent {
   background-color: aliceblue;
-  width: 50px;
+  width: 100px;
+  height: 50px;
+
 }
 </style>

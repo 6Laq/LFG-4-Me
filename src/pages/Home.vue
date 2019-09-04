@@ -1,38 +1,38 @@
 <template>
-  <section class="section">
+  <div class="page">
     <Nav />
-    <div class="container">
+    <div class="page-container">
       <SideMenu class="side-menu" />
-      <div class="main-area">posts</div>
-      <div class="side-area">related pots</div>
+      <Posts class="main-area"/>
     </div>
-  </section>
+  </div>
 </template>
 
 <script>
 import Nav from '../components/Nav'
 import SideMenu from '../components/SideMenu'
+import Posts from '../components/Posts'
 
 export default {
-  name: 'Index',
+  name: 'Home',
+  data () {
+    return {
+      name: '',
+    }
+  },
   components: {
     Nav,
-    SideMenu
+    SideMenu,
+    Posts
   }
 }
 </script>
 
 <style scoped>
-.section {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  width: 100%;
-}
-.container {
+.page-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-between;
   background-color: #386679;
   overflow: hidden;
   height: 100%;
@@ -41,17 +41,10 @@ export default {
 }
 .side-menu {
   background-color: thistle;
-  height: 100%;
-  width: 10%;
+  min-width: 15%;
 }
 .main-area{
-  background-color: lightcoral;
   height: 100%;
-  width: 70%;
-}
-.side-area {
-  background-color: green;
-  height: 100%;
-  width: 15%;
+  width:80%;
 }
 </style>
