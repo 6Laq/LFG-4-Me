@@ -1,7 +1,7 @@
 <template>
   <li>
-    {{ todo.text }}
-    <button @click="$emit('remove', todo.id)">
+    {{ post.message }}
+    <button @click="$emit('remove', post.id)">
       X
     </button>
   </li>
@@ -10,7 +10,7 @@
 <script>
 export default {
   props: {
-    todo: {
+    post: {
       type: Object,
       required: true
     }

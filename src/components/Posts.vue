@@ -1,16 +1,17 @@
 <template>
 	<div>
 		<PostInput 
-			v-model="newTodoText"
-			placeholder="New todo"
-			@keydown.enter="addTodo"
+			placeholder="New Post"
+      :value="newPost"
+      @input="newPost = $event"
 		/>
-		<ul v-if="todos.length">
+    <button @click="addpost">Submit</button>
+		<ul v-if="posts.length">
 			<PostListItem
-				v-for="todo in todos"
-				:key="todo.id"
-				:todo="todo"
-				@remove="removeTodo"
+				v-for="post in posts"
+				:key="post.id"
+				:post="post"
+				@remove="removePost"
 			/>
 		</ul>
 		<p v-else>
@@ -23,45 +24,34 @@
 import PostInput from './PostInput.vue'
 import PostListItem from './PostListItem.vue'
 
-let nextTodoId = 1
-
 export default {
 	components: {
 		PostInput, PostListItem
-	},
+  },
+  props: {
+    posts: {
+      type: Array,
+      default: () => {
+        return []
+      }
+    }
+  },
   data () {
     return {
-			newTodoText: '',
-      todos: [
-				{
-					id: nextTodoId++,
-					text: 'Learn Firebase'
-				},
-				{
-					id: nextTodoId++,
-					text: 'Remove Firebase'
-				},
-				{
-					id: nextTodoId++,
-					text: 'Post list'
-				}
-			]
+      newPost: ''
     }
   },
 	methods: {
-		addTodo () {
-			const trimmedText = this.newTodoText.trim()
+		addpost () {
+			const trimmedText = this.newPost.trim()
 			if (trimmedText) {
-				this.todos.push({
-					id: nextTodoId++,
-					text: trimmedText
-				})
-				this.newTodoText = ''
+				this.$emit('newPost', trimmedText)
+				this.newPost = ''
 			}
 		},
-		removeTodo (idToRemove) {
-			this.todos = this.todos.filter(todo => {
-				return todo.id !== idToRemove
+		removePost (idToRemove) {
+			this.posts = this.posts.filter(post => {
+				return post.id !== idToRemove
 			})
 		}
 	}

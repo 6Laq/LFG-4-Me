@@ -3,7 +3,11 @@
     <Nav />
     <div class="page-container">
       <SideMenu class="side-menu" />
-      <Posts class="main-area"/>
+      <Posts
+        class="main-area"
+        :posts="posts"
+        @newPost="handleNewPost"
+      />
     </div>
   </div>
 </template>
@@ -12,18 +16,30 @@
 import Nav from '../components/Nav'
 import SideMenu from '../components/SideMenu'
 import Posts from '../components/Posts'
-
 export default {
   name: 'Home',
-  data () {
-    return {
-      name: '',
-    }
-  },
   components: {
     Nav,
     SideMenu,
     Posts
+  },
+  created() {
+    this.$store.dispatch('bindTodosRef')
+  },
+  data () {
+    return {
+      name: ''
+    }
+  },
+  computed: {
+    posts() {
+      return this.$store.state.posts
+    }
+  },
+  methods: {
+    handleNewPost(post) {
+      this.$store.dispatch('addPost', { post: { message: post}})
+    }
   }
 }
 </script>
